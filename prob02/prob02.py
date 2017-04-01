@@ -7,7 +7,7 @@ Soln:
 
 from collections import defaultdict
 
-import .sample_text as sample  # a global to hold the giant block of text
+import sample_text as sample
 
 def get_char_freq(text):
 
@@ -28,6 +28,7 @@ def main():
 
     fd = get_char_freq(sample.txt)
 
+    print(fd)
 
 if __name__ == '__main__':
     main()
