@@ -34,7 +34,9 @@ def get_next_in_seq(value_string):
             count += 1
         else:
             result_arr.append((count, cur_char))
-            count = 1    # fun fact - if you don't reset the count, you turn your laptop into a space heater (oops)
+            count = 1
+            # fun fact - if you don't reset the count,
+            # you turn your laptop into a space heater (oops)
         cur_char = next_char
     
     # and take care of the last ones
@@ -62,6 +64,7 @@ def count_array_to_string(count_array):
 
 def main():
     """
+    compute the length of the 1, 11, 21, 1211 series
     """
     next_val_string = '1'
     
