@@ -15,13 +15,17 @@ import datetime as dt
 
 
 def find_target_year():
+    """
+    print all the years beginning in 1 and ending in 6 that are leap years
+    :return: nothing
+    """
 
     for year in range(1006, 1996, 10):
         if dt.datetime(year, 1, 26).weekday() == 0:
             try:
                 dt.datetime(year, 2, 29)
                 print(f"{year}")
-            except Exception as e:
+            except ValueError:    # catch anything that's not a leap year and continue
                 pass
 
 
