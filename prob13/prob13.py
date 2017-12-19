@@ -11,11 +11,7 @@ picture of a phone - 5 is clickable and gives a bad xmldoc - SOAP? XML RPC
 URL: http://www.pythonchallenge.com/pc/return/disproportional.html
 soln: http://www.pythonchallenge.com/pc/return/italy.html
 """
-import io
-import requests
 import xmlrpc.client
-
-from pprint import pprint as pp
 
 def main():
     """
