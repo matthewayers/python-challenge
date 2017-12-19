@@ -25,7 +25,8 @@ def transform_image_spiral(source_image):
     :return: a square image with the line wrapped into is (size is sqrt(len(line)))
     """
 
-    # ok - so I could do the sqrt of the image width but I'm not making a general purpose solution here
+    # ok - so I could do the sqrt of the image width but I'm
+    # not making a general purpose solution here
     img_width = 100
     img_height = 100
 
