@@ -12,24 +12,25 @@ URL: http://www.pythonchallenge.com/pc/return/romance.html
 soln:
 """
 
-import requests
 import re
 import bz2
 
 from urllib.parse import unquote_to_bytes, quote_plus
 from xmlrpc.client import ServerProxy
 
+import requests
 
-#import prob04.prob04 as p4
-
-
-def follow_nothing_new(link_number):
-
+def follow_busynothing(link_number):
+    """
+    follows the busynothing links (similar to prob04 but with busynothing= instead of nothing=
+    :param link_number: the busynothing link to follow
+    :return:
+    """
     url = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?busynothing={}'.format(link_number)
-    r = requests.get(url)
-    html = r.text
+    response = requests.get(url)
+    html = response.text
     print(f"COOKIES {link_number}")
-    info = r.cookies['info']
+    info = response.cookies['info']
     return info, html
 
 def parse_for_nothing_new(text_str):
@@ -44,10 +45,6 @@ def parse_for_nothing_new(text_str):
 
     return match.group(1)
 
-def print_cookies(cookies):
-    for cookie in cookies:
-        print(cookie)
-
 def main():
     """
     I think this one has something to do with cookies - first step, get
@@ -59,12 +56,12 @@ def main():
     info_string = ''
     while nothing_link_number:
         iteration += 1
-        info_byte, result = follow_nothing_new(nothing_link_number)
+        info_byte, result = follow_busynothing(nothing_link_number)
         info_string += info_byte
         if nothing_link_number != '16044':
             try:
                 nothing_link_number = parse_for_nothing_new(result)
-            except Exception as e:
+            except AttributeError:
                 print("DONE: {}".format(result))
                 nothing_link_number = ''  # terminate the loop
         else:
@@ -90,9 +87,9 @@ def main():
 
     url = "http://www.pythonchallenge.com/pc/stuff/violin.php"
     msg = "the flowers are on their way"
-    r = requests.get(url, headers={"Cookie": "info=" + quote_plus(msg)})
+    response = requests.get(url, headers={"Cookie": "info=" + quote_plus(msg)})
 
-    print(r.text)
+    print(response.text)
 
     # this prints a webpage with the following relevant line:
     #  "oh well, don't you dare to forget the balloons."
