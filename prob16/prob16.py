@@ -6,6 +6,7 @@ prob16
 let me get this straight
 
 URL: http://www.pythonchallenge.com/pc/return/mozart.html
+soln: http://www.pythonchallenge.com/pc/return/romance.html
 """
 
 
